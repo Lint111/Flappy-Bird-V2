@@ -7,17 +7,19 @@ public class RepeatingScrolling : MonoBehaviour
     [SerializeField] private float scrollSpeed;
     private Bounds bounds;
     private float zBound;
+    private Vector3 originalTransom;
 
 
     private void Start() {
         bounds = GetComponent<BoxCollider>().bounds;
         zBound = bounds.extents.z;
+        originalTransom = transform.position;
     }
 
     private void Update() {
-        if(transform.position.z < transform.position.z - zBound)
+        if(transform.position.z < originalTransom.z - zBound)
         {
-            transform.position += Vector3.forward * zBound ;
+            transform.position = originalTransom ;
         }
         transform.position += Vector3.back * scrollSpeed * Time.deltaTime;
     }
