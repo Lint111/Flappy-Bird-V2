@@ -32,6 +32,25 @@ public class ObstacleManager : MonoBehaviour
         }
     }
 
+    public void FinishGame()
+    {
+        Object[] constantMovers = FindObjectsOfType<ConstantMovement>();
+        Object[] repeatingMovers = FindObjectsOfType<RepeatingScrolling>();
+
+        foreach (ConstantMovement item in constantMovers)
+        {
+            item.enabled=false;
+        }
+
+        foreach (RepeatingScrolling item in repeatingMovers)
+        {
+            item.enabled = false;
+        }
+        
+        StopAllCoroutines();
+        this.enabled=false;
+    }
+
     
 
     

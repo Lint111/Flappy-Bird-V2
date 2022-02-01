@@ -10,11 +10,16 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private float rotationScale=10;
     [SerializeField] private Vector3 gravity = Physics.gravity;
     private Rigidbody rb;
+    private ObstacleManager obstacleManager;
+    private GameManager GM;
     private bool IsJumping=false;
+    private bool gameOver=false;
     private Vector3 torque;
     void Start()
     {
         rb = GetComponent<Rigidbody>(); 
+        obstacleManager = GameObject.Find("ObstacleManager").GetComponent<ObstacleManager>();
+        GM = GameObject.Find("GameManager").GetComponent<GameManager>();
         UpdateGravity();       
     }
 
@@ -30,14 +35,15 @@ public class PlayerController : MonoBehaviour
     private void OnCollisionEnter(Collision other) {
         if(other.gameObject.CompareTag("Obstacle"))
         {
-            //GameLost
-            print("Hit!!!");
+            gameOver=true;
+            obstacleManager.FinishGame();
+            GM.GameOver();                      
         }
     }
 
     private void GetInput()
     {
-        if(Input.GetKeyDown(KeyCode.Space))
+        if(Input.GetKeyDown(KeyCode.Space) || Input.GetMouseButtonDown(0) || Input.touchCount>0)
         {
             IsJumping = true;
         }
@@ -52,7 +58,7 @@ public class PlayerController : MonoBehaviour
 
     private void HandlePhysics()
     {
-        if(IsJumping)
+        if(!gameOver && IsJumping)
         {           
             ApplyForce();
             return;

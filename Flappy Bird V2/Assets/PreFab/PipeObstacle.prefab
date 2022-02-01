@@ -106,8 +106,9 @@ GameObject:
   m_Component:
   - component: {fileID: 2564068349302914196}
   - component: {fileID: 2564068349302914197}
-  - component: {fileID: 528151232586099046}
   - component: {fileID: -2412031095163766611}
+  - component: {fileID: 1836701365147105577}
+  - component: {fileID: 528151232586099046}
   m_Layer: 0
   m_Name: PipeObstacle
   m_TagString: Untagged
@@ -147,6 +148,30 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   movementDirection: {x: 0, y: 0, z: -1}
   movementSpeed: 5
+--- !u!114 &-2412031095163766611
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2564068349302914195}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 92b49d1f1f6bbf244bfa17c3fb606a52, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1836701365147105577
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2564068349302914195}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 811f4a2fd00edcc4c969ceeb88dbd909, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!136 &528151232586099046
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -161,18 +186,6 @@ CapsuleCollider:
   m_Height: 4
   m_Direction: 1
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &-2412031095163766611
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2564068349302914195}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 92b49d1f1f6bbf244bfa17c3fb606a52, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &2564068349446977352
 GameObject:
   m_ObjectHideFlags: 0
