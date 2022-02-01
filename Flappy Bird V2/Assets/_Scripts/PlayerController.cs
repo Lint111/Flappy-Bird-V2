@@ -6,9 +6,8 @@ public class PlayerController : MonoBehaviour
 {
     [SerializeField] private float force = 10;    
     [SerializeField] private float maxVelocity = 10;
-    [SerializeField] private float upTorqueForce =3;
-    [SerializeField] private float downTorqueForce =3;
     [SerializeField] private float rotationLimit =45;
+    [SerializeField] private float rotationScale=10;
     [SerializeField] private Vector3 gravity = Physics.gravity;
     private Rigidbody rb;
     private bool IsJumping=false;
@@ -25,13 +24,7 @@ public class PlayerController : MonoBehaviour
     }
     private void FixedUpdate() 
     {        
-        if(!IsJumping)
-        {           
-            ApplyRotation(Vector3.right, downTorqueForce);
-            return;
-        }
-        ApplyRotation(Vector3.left, upTorqueForce);
-        ApplyForce();
+        HandlePhysics();        
     }
 
     private void OnCollisionEnter(Collision other) {
@@ -56,6 +49,16 @@ public class PlayerController : MonoBehaviour
             Physics.gravity=gravity;
         }
     }
+
+    private void HandlePhysics()
+    {
+        if(IsJumping)
+        {           
+            ApplyForce();
+            return;
+        }        
+        ApplyRotation();
+    }
     private void ApplyForce()
     {
         rb.AddForce(Vector3.up * force,ForceMode.Impulse);        
@@ -63,13 +66,10 @@ public class PlayerController : MonoBehaviour
         IsJumping=false;
     }
 
-    private void ApplyRotation(Vector3 vector, float torqueForce)
+    private void ApplyRotation()
     {     
-        transform.forward = new Vector3(-1,0,0);   
-        //transform.Rotate(vector* Time.deltaTime * torqueForce, Space.World);
-        //float clampedX = Mathf.Clamp(transform.localEulerAngles.x,-rotationLimit,rotationLimit);
-
-        //transform.rotation = Quaternion.LookRotation(Vector3.forward * clampedX,Vector3.zero);      
-    }
+        float yDirection = Mathf.Clamp(-rb.velocity.y * rotationScale,-rotationLimit,rotationLimit);        
+        transform.eulerAngles = new Vector3(yDirection,0,0);
+    }    
 
 }
