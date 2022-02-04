@@ -10,17 +10,17 @@ public class GameManager : MonoBehaviour
     private ScoreHandeler scoreHandeler;
 
     private void Start() {
-        gameOverPanel = GameObject.Find("GameOverScreen");
-        gameOverPanel.SetActive(false);
-        //score = GameObject.Find("GameScore").GetComponent<TMP_Text>();
+        gameOverPanel = GameObject.Find("GameOverScreen");        
+        score = GameObject.Find("GameScore").GetComponent<TMP_Text>();
         scoreHandeler=GameObject.Find("Canvas").GetComponent<ScoreHandeler>();
+        gameOverPanel.SetActive(false);
     }
 
     public void GameOver()
     {
         gameOverPanel.SetActive(true);
-        //score.text = $"Your Score is: {scoreHandeler.getScore()}";
-
+        int gameScore = scoreHandeler.getScore();
+        score.text = $"Your Score is: {gameScore}";
         //UI animation.
     }
 }

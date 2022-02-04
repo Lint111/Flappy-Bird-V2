@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 5917850083740155279}
   m_Layer: 0
   m_Name: Pipe Decoretion
-  m_TagString: Untagged
+  m_TagString: Obstacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -147,7 +147,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   movementDirection: {x: 0, y: 0, z: -1}
-  movementSpeed: 5
+  movementSpeed: 3.5
 --- !u!114 &-2412031095163766611
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -392,7 +392,7 @@ GameObject:
   - component: {fileID: 7678010473348849327}
   m_Layer: 0
   m_Name: Pipe Decoretion (1)
-  m_TagString: Untagged
+  m_TagString: Obstacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

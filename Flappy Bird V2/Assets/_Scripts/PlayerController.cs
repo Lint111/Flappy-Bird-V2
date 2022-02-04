@@ -43,7 +43,7 @@ public class PlayerController : MonoBehaviour
 
     private void GetInput()
     {
-        if(Input.GetKeyDown(KeyCode.Space) || Input.GetMouseButtonDown(0) || Input.touchCount>0)
+        if(Input.GetKeyDown(KeyCode.Space) || Input.GetMouseButtonDown(0) || (Input.touchCount>0 && Input.GetTouch(0).phase == TouchPhase.Began))
         {
             IsJumping = true;
         }
