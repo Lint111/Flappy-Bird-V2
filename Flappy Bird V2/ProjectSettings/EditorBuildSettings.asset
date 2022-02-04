@@ -8,4 +8,7 @@ EditorBuildSettings:
   - enabled: 0
     path: 
     guid: 00000000000000000000000000000000
+  - enabled: 1
+    path: Assets/Scenes/Flappy Bird.unity
+    guid: ba292c6cb6fa7304daf0dd1391847363
   m_configObjects: {}
